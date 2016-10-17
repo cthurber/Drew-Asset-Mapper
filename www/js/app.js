@@ -5,9 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services','leaflet-directive','ngCordova','igTruncate'])
-//angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,25 +21,3 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
- 
- .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-
-      .state('app', {
-        url: "/app",
-        abstract: true,
-        templateUrl: "templates/menu.html",
-        controller: 'MapController'
-      })
-
-      .state('app.map', {
-        url: "/map",
-        views: {
-          'menuContent' :{
-            templateUrl: "templates/map.html"
-          }
-        }
-      })
-
-    $urlRouterProvider.otherwise('/app/map');
-  });
