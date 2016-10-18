@@ -1,10 +1,12 @@
 <ion-view title="Home" id="page1">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
     <ion-content padding="true" class="has-header">
         <form id="home-form1" class="list">
             <label class="item item-input" name="SearchBar">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Search...">
             </label>
+             <div id="mapid"></div>
         </form>
         <div class="spacer" style="width: 300px; height: 346px;"></div>
         <div id="home-button-bar1" class="button-bar">
