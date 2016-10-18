@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
 #mapid{
-    height:250px;
+    height:500px;
 }
 /* required styles */
 
@@ -17,9 +17,11 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+
 	}
 .leaflet-container {
 	overflow: hidden;
+
 	}
 .leaflet-tile,
 .leaflet-marker-icon,
