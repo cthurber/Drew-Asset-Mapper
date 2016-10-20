@@ -1,4 +1,4 @@
-<ion-view title="Settings" id="page2">
+<ion-view title="Settings" id="settings">
 
   <ion-floating-button is-centered="true" button="10" click="myEvent()" has-footer="false" button-color="#0D74FF" icon="ion-plus" icon-color="#fff">
   </ion-floating-button>
@@ -8,5 +8,66 @@
     <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
   </ion-floating-menu>
 
-    <ion-content padding="true" class="has-header"></ion-content>
+    <!--everything here needs backend support-->
+
+    <ion-content padding="true" class="has-header">
+      <div class="card">
+        <div class="item item-divider">
+          Theme Color
+        </div>
+        <div class="row">
+          <div class="col"><button class="button button-assertive"></button></div>
+          <div class="col"><button class="button button-energized"></button></div>
+          <div class="col"><button class="button button-balanced"></button></div>
+          <div class="col"><button class="button button-calm"></button></div>
+          <div class="col"><button class="button button-positive"></button></div>
+          <div class="col"><button class="button button-royal"></button></div>
+          <div class="col"><button class="button button-stable"></button></div>
+          <div class="col"><button class="button button-dark"></button></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          Language
+        </div>
+        <ion-list>
+          <ion-radio ng-model="choice" ng-value="'english'"> English </ion-radio>
+          <ion-radio ng-model="choice" ng-value="'spanish'"> Español </ion-radio>
+       </ion-list>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          Privacy Settings
+        </div>
+        <ul class="ion-list">
+          <li class="item item-toggle">
+            Example 1
+            <label class="toggle">
+                <input type="checkbox">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </li>
+        <li class="item item-toggle">
+          Example 2
+          <label class="toggle toggle-assertive">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          Deactivate Account
+        </div>
+      <button class="button button-block button-assertive">
+        <div style="color:grey">Deactivate</div>
+      </button>
+    </div>
+    </ion-content>
 </ion-view>
