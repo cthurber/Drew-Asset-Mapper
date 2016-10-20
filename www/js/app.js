@@ -6,6 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
+angular.module('Demo', ['ionic', 'jett.ionic.filter.bar'])
+angular.module('MyApp', ['ionic', 'ion-floating-menu'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
