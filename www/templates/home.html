@@ -1,14 +1,14 @@
 <ion-view title="Home" id="page1">
 
-  <ion-floating-button button="100" click="myEvent()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
-  </ion-floating-button>
+    <ion-floating-button button="100" click="myEvent()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
+    </ion-floating-button>
 
-  <ion-floating-menu>
-    <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
-    <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
-  </ion-floating-menu>
+    <ion-floating-menu>
+      <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
+      <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
+    </ion-floating-menu>
 
-    <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header" scrolling="false">
         <link rel="stylesheet" href="..\css\style.css"/>
 
         <form id="home-form1" class="list">
@@ -17,6 +17,8 @@
                 <input type="search" placeholder="Search...">
             </label>
         </form>
+
+        <!-- IT'S THE MAP!!! -->
         <div id="mapid"></div>
 
         <div id="home-button-bar1" class="button-bar">
