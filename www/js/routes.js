@@ -40,6 +40,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.usersignin', {
+    url: '/usersignin',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/usersignin.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
   .state('menu', {
     url: '/side-menu21',
     templateUrl: 'templates/menu.html',
