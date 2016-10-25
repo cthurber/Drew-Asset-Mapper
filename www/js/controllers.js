@@ -38,7 +38,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
      //Will become a loop pulling coordinates from the table, markers receive LatLng objects
-     var markerIcon = L.icon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png', iconSize:[38, 60]}); //Create a custom marker icon
+
+     var markerIcon = L.icon({iconUrl: 'http://gkv.com/wp-content/uploads/leaflet-maps-marker-icons/map_marker-orange.png', iconSize:[45, 50]}); //Create a custom marker icon
      var marker = L.marker([40.76, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
      var marker2 = L.marker([40.75, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
      var marker3 = L.marker([40.74, -74.240], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
