@@ -19,23 +19,22 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoicnlhbm90dG8xIiwiYSI6ImNpdWVyNHNtNjAwYXUydHBncTNvcjQ4azgifQ.y_p9wdDpPsdOqzUEAQBNlg'}).addTo(mymap);
     mymap.invalidateSize(); //Fixes grey tile rendering issue (Ryan, Nikita)
 
-    mymap.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
+    //Locate user
+    mymap.locate({setView: true, watch: true})
         .on('locationfound', function(e){
-            var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-            var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+                var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
                 weight: 1,
                 color: 'blue',
                 fillColor: '#cacaca',
-                fillOpacity: 0.2
-            });
-            mymap.addLayer(marker);
-            mymap.addLayer(circle);
+                fillOpacity: 0.2});
+                mymap.addLayer(marker);
+                mymap.addLayer(circle);
         })
        .on('locationerror', function(e){
             console.log(e);
-            alert("The borscht has been spilt.");
+            alert("Could not find your location"); //Error message if location not found (the borscht has been spilt [Jon,Ryan])
         });
-
 
 
      //Will become a loop pulling coordinates from the table, markers receive LatLng objects
