@@ -40,8 +40,8 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.usersignin', {
-    url: '/usersignin',
+  .state('menu.usersignup', {
+    url: '/usersignup',
     views: {
       'side-menu21': {
         templateUrl: 'templates/usersignup.html',
