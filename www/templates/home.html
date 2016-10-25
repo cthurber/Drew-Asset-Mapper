@@ -1,15 +1,8 @@
 <ion-view title="Home" id="page1">
 
-    <ion-floating-button button="100" click="myEvent()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
-    </ion-floating-button>
-
-    <ion-floating-menu>
-      <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
-      <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
-    </ion-floating-menu>
-
     <ion-content padding="true" class="has-header" scrolling="false">
-        <link rel="stylesheet" href="..\css\style.css"/>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link href="../lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
 
         <form id="home-form1" class="list">
             <label class="item item-input" name="SearchBar">
@@ -21,10 +14,19 @@
         <!-- IT'S THE MAP!!! -->
         <div id="mapid"></div>
 
-        <div id="home-button-bar1" class="button-bar">
+        <!-- <div id="home-button-bar1" class="button-bar">
             <button id="home-button4" class="button button-energized  button-block icon ion-android-refresh"></button>
             <button id="home-button1" class="button button-energized  button-block icon ion-location"></button>
             <a ui-sref="menu.settings" id="home-button5" class="button button-energized  button-block icon ion-android-settings"></a>
-        </div>
+        </div> -->
+        <li ></li>
     </ion-content>
+
+    <ion-floating-menu>
+
+      <ion-floating-item button-color="#FF9326" icon="ion-camera" click="myEvent()">Lit city</ion-floating-item>
+      <ion-floating-item button-color="#FF9326" icon="ion-person" click="myEvent()">Cool</ion-floating-item>
+      hi
+    </ion-floating-menu>
+
 </ion-view>
