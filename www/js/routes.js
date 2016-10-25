@@ -44,7 +44,7 @@ angular.module('app.routes', [])
     url: '/usersignin',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/usersignin.html',
+        templateUrl: 'templates/usersignup.html',
         controller: 'settingsCtrl'
       }
     }
