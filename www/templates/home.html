@@ -1,15 +1,8 @@
 <ion-view title="Home" id="page1">
 
-    <ion-floating-button button="100" click="myEvent()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" icon-color="#fff">
-    </ion-floating-button>
-
-    <ion-floating-menu>
-      <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
-      <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
-    </ion-floating-menu>
-
     <ion-content padding="true" class="has-header" scrolling="false">
-        <link rel="stylesheet" href="..\css\style.css"/>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link href="../lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
 
         <form id="home-form1" class="list">
             <label class="item item-input" name="SearchBar">
@@ -19,12 +12,22 @@
         </form>
 
         <!-- IT'S THE MAP!!! -->
-        <div id="mapid"></div>
+        <div id="mapid">
 
-        <div id="home-button-bar1" class="button-bar">
+          <ion-floating-menu menu-color="#F58120" menu-open-color="#ED8923">
+<!--  - Orange main -->
+            <ion-floating-item button-color="#FF9326" icon="ion-settings" click="myEvent()" ui-sref="menu.settings">Lit city</ion-floating-item>
+            <ion-floating-item button-color="#FF9326" icon="ion-person" click="myEvent()" ui-sref="menu.businessprofile">Cool</ion-floating-item>
+          </ion-floating-menu></div>
+
+        <!-- <div id="home-button-bar1" class="button-bar">
             <button id="home-button4" class="button button-energized  button-block icon ion-android-refresh"></button>
             <button id="home-button1" class="button button-energized  button-block icon ion-location"></button>
             <a ui-sref="menu.settings" id="home-button5" class="button button-energized  button-block icon ion-android-settings"></a>
-        </div>
+        </div> -->
+
     </ion-content>
+
+
+
 </ion-view>
