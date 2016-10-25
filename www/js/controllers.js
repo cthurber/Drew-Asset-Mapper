@@ -17,15 +17,33 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     maxZoom: 18, minZoom:3,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoicnlhbm90dG8xIiwiYSI6ImNpdWVyNHNtNjAwYXUydHBncTNvcjQ4azgifQ.y_p9wdDpPsdOqzUEAQBNlg'}).addTo(mymap);
-    mymap.invalidateSize(); //Fixes grey tile rendering issue
+    mymap.invalidateSize(); //Fixes grey tile rendering issue (Ryan, Nikita)
+
+    mymap.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
+        .on('locationfound', function(e){
+            var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+            var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                weight: 1,
+                color: 'blue',
+                fillColor: '#cacaca',
+                fillOpacity: 0.2
+            });
+            mymap.addLayer(marker);
+            mymap.addLayer(circle);
+        })
+       .on('locationerror', function(e){
+            console.log(e);
+            alert("The borscht has been spilt.");
+        });
+
+
 
      //Will become a loop pulling coordinates from the table, markers receive LatLng objects
      var markerIcon = L.icon({iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png', iconSize:[38, 60]}); //Create a custom marker icon
-     var marker = L.marker([40.76, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf."); //Add marker with custom icon to map
-     var marker2 = L.marker([40.75, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am a slightly more informative orange leaf."); //Add marker with custom icon to map
-     var marker3 = L.marker([40.74, -74.240], {icon: markerIcon}).addTo(mymap).bindPopup("I am an equally orange leaf."); //Add marker with custom icon to map
-     var marker4 = L.marker([40.78, -74.245], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf without a sense of humor."); //Add marker with custom icon to map
-
+     var marker = L.marker([40.76, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
+     var marker2 = L.marker([40.75, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
+     var marker3 = L.marker([40.74, -74.240], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
+     var marker4 = L.marker([40.78, -74.245], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf"); //Add marker with custom icon to map
 
 
 }])
