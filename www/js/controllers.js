@@ -12,6 +12,10 @@ function ($scope, $stateParams, $ionicSideMenuDelegate) {
 
 
 var mymap = L.map('mapid').setView([40.76804,-74.235692], 13); //Set map name and default view location/zoom level
+    var userMarker;
+    var userCircle;
+    var userIcon;
+
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', { //Initialize map with mapbox streets tileset and min/max zoom level
     attribution: '',
     maxZoom: 18, minZoom:3,
@@ -21,15 +25,22 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
     //Locate user
     mymap.locate({setView: true, watch: true})
+
         .on('locationfound', function(e){
-                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-                var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
+                //mymap.removeLayer(userMarker)
+                //mymap.removeLayer(userCircle)
+
+                userIcon = L.icon({iconUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/25718-200.png', iconSize:[45, 50]}); //Create a custom marker icon
+                userMarker = L.marker([e.latitude, e.longitude], {icon: userIcon}).addTo(mymap).bindPopup("You are here");
+                userCircle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
                 weight: 1,
                 color: 'blue',
                 fillColor: '#cacaca',
                 fillOpacity: 0.2});
-                mymap.addLayer(marker);
-                mymap.addLayer(circle);
+                mymap.addLayer(userMarker);
+                mymap.addLayer(userCircle);
+
+
         })
        .on('locationerror', function(e){
             console.log(e);
