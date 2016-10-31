@@ -41,10 +41,20 @@ angular.module('app.routes', [])
   })
 
   .state('menu.usersignup', {
-    url: '/usersignup',
+    url: '/signup',
     views: {
       'side-menu21': {
         templateUrl: 'templates/usersignup.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.userlogin', {
+    url: '/login',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/userlogin.html',
         controller: 'settingsCtrl'
       }
     }
