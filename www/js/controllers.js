@@ -27,8 +27,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     mymap.locate({setView: true, watch: true})
 
         .on('locationfound', function(e){
-                //mymap.removeLayer(userMarker)
-                //mymap.removeLayer(userCircle)
                 if(mymap.hasLayer(userMarker)){
                     mymap.removeLayer(userMarker)
                     mymap.removeLayer(userCircle)
@@ -37,9 +35,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                 userMarker = L.marker([e.latitude, e.longitude], {icon: userIcon}).addTo(mymap).bindPopup("You are here");
                 userCircle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
                 weight: 1,
-                color: 'blue',
-                fillColor: '#cacaca',
-                fillOpacity: 0.2});
+                color: 'orange',
+                fillColor: '#f0c675',
+                fillOpacity: 0.6});
                 mymap.addLayer(userMarker);
                 mymap.addLayer(userCircle);
 
@@ -47,7 +45,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
         })
        .on('locationerror', function(e){
             console.log(e);
-            alert("Could not find your location"); //Error message if location not found (the borscht has been spilt [Jon,Ryan])
+            alert("Could not find your location!"); //Error message if location not found (the borscht has been spilt [Jon,Ryan])
         });
 
 
