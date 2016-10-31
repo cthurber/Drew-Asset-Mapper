@@ -29,7 +29,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
         .on('locationfound', function(e){
                 //mymap.removeLayer(userMarker)
                 //mymap.removeLayer(userCircle)
-
+                if(mymap.hasLayer(userMarker)){
+                    mymap.removeLayer(userMarker)
+                    mymap.removeLayer(userCircle)
+                }
                 userIcon = L.icon({iconUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/25718-200.png', iconSize:[45, 50]}); //Create a custom marker icon
                 userMarker = L.marker([e.latitude, e.longitude], {icon: userIcon}).addTo(mymap).bindPopup("You are here");
                 userCircle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
