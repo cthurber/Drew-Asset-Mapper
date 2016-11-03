@@ -15,6 +15,11 @@ var mymap = L.map('mapid').setView([40.76804,-74.235692], 13); //Set map name an
     var userMarker;
     var userCircle;
     var userIcon;
+    var inBound = false;
+    var maxLat = 40.81;
+    var minLat = 40.75;
+    var maxLong = -74.275;
+    var minLong = -74.205;
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', { //Initialize map with mapbox streets tileset and min/max zoom level
     attribution: '',
@@ -24,13 +29,22 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     mymap.invalidateSize(); //Fixes grey tile rendering issue (Ryan, Nikita)
 
     //Locate user
-    mymap.locate({setView: true, watch: true})
+    mymap.locate({setView: inBound , watch: true})
 
         .on('locationfound', function(e){
                 if(mymap.hasLayer(userMarker)){
                     mymap.removeLayer(userMarker)
                     mymap.removeLayer(userCircle)
                 }
+                    //logic block here for inBound boolean variable
+
+                    //if userCoordinates are less than maxLat and less than maxLong as well as greater than minLat and minLong
+                    //then inBound == true
+                    if((e.latitude <= maxLat && e.latitude >= minLat) && (e.longitude <= maxLong && e.longitude>= minLong)){
+                        inBound = true;
+                    }else{
+                        inBound = false;
+                    }
                 userIcon = L.icon({iconUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/25718-200.png', iconSize:[45, 50]}); //Create a custom marker icon
                 userMarker = L.marker([e.latitude, e.longitude], {icon: userIcon}).addTo(mymap).bindPopup("You are here");
                 userCircle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
