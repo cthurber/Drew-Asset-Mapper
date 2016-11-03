@@ -1,4 +1,7 @@
 /* Empty. Add your own CSS if you like */
+.leaflet-control{
+	visibility:hidden;
+}
 #mapid{
     height:600px;
 }
