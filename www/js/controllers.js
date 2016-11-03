@@ -15,7 +15,7 @@ var mymap = L.map('mapid').setView([40.76804,-74.235692], 13); //Set map name an
     var userMarker;
     var userCircle;
     var userIcon;
-    var inBound = false;
+    var inBound;
     var maxLat = 40.81;
     var minLat = 40.75;
     var maxLong = -74.275;
@@ -54,8 +54,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                 fillOpacity: 0.6});
                 mymap.addLayer(userMarker);
                 mymap.addLayer(userCircle);
-
-
         })
        .on('locationerror', function(e){
             console.log(e);
