@@ -10,7 +10,7 @@ angular.module('app.routes', [])
 
 
 
-    .state('menu.home', {
+  .state('menu.home', {
     url: '/page1',
     views: {
       'side-menu21': {
@@ -34,7 +34,7 @@ angular.module('app.routes', [])
     url: '/businessprofile',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/businessprofile.html',
+        templateUrl: 'templates/business-profile.html',
         controller: 'settingsCtrl'
       }
     }
@@ -44,7 +44,17 @@ angular.module('app.routes', [])
     url: '/signup',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/usersignup.html',
+        templateUrl: 'templates/user-signup.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.adminaccountmanagement', {
+    url: '/adminmanage',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/admin-account-management.html',
         controller: 'settingsCtrl'
       }
     }
@@ -54,7 +64,7 @@ angular.module('app.routes', [])
     url: '/login',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/userlogin.html',
+        templateUrl: 'templates/user-login.html',
         controller: 'settingsCtrl'
       }
     }
