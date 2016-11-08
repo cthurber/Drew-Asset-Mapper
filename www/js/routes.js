@@ -44,7 +44,7 @@ angular.module('app.routes', [])
     url: '/signup',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/user-signup.html',
+        templateUrl: 'templates/user-views/user-signup.html',
         controller: 'settingsCtrl'
       }
     }
@@ -54,7 +54,7 @@ angular.module('app.routes', [])
     url: '/admin-manage',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/admin-account-management.html',
+        templateUrl: 'templates/admin-views/admin-account-management.html',
         controller: 'settingsCtrl'
       }
     }
@@ -64,7 +64,7 @@ angular.module('app.routes', [])
     url: '/admin-create-account',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/admin-create-new.html',
+        templateUrl: 'templates/admin-views/admin-create-new.html',
         controller: 'settingsCtrl'
       }
     }
@@ -74,7 +74,7 @@ angular.module('app.routes', [])
     url: '/admin-modify-existing',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/admin-modify-existing.html',
+        templateUrl: 'templates/admin-views/admin-modify-existing.html',
         controller: 'settingsCtrl'
       }
     }
@@ -84,7 +84,7 @@ angular.module('app.routes', [])
     url: '/admin-modify-user',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/admin-modify-user.html',
+        templateUrl: 'templates/admin-views/admin-modify-user.html',
         controller: 'settingsCtrl'
       }
     }
@@ -94,7 +94,7 @@ angular.module('app.routes', [])
     url: '/login',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/user-login.html',
+        templateUrl: 'templates/user-views/user-login.html',
         controller: 'settingsCtrl'
       }
     }
