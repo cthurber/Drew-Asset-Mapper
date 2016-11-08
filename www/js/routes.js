@@ -31,7 +31,7 @@ angular.module('app.routes', [])
   })
 
   .state('menu.businessprofile', {
-    url: '/businessprofile',
+    url: '/business-profile',
     views: {
       'side-menu21': {
         templateUrl: 'templates/business-profile.html',
@@ -51,10 +51,40 @@ angular.module('app.routes', [])
   })
 
   .state('menu.adminaccountmanagement', {
-    url: '/adminmanage',
+    url: '/admin-manage',
     views: {
       'side-menu21': {
         templateUrl: 'templates/admin-account-management.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.admincreateaccount', {
+    url: '/admin-create-account',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/admin-create-new.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.adminmodifyexisting', {
+    url: '/admin-modify-existing',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/admin-modify-existing.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.adminmodifyuser', {
+    url: '/admin-modify-user',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/admin-modify-user.html',
         controller: 'settingsCtrl'
       }
     }
