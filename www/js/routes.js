@@ -70,6 +70,36 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.providermainview', {
+    url: '/provider-main-view',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/provider-views/provider-home.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.providercreatenew', {
+    url: '/provider-create-new',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/provider-views/provider-create-new.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.providerpropertyedit', {
+    url: '/provider-property-edit',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/provider-views/provider-property-edit.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
   .state('menu.adminmodifyexisting', {
     url: '/admin-modify-existing',
     views: {
