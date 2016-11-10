@@ -44,7 +44,7 @@ angular.module('app.routes', [])
     url: '/user-profile',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/user-profile.html',
+        templateUrl: 'templates/userProfile.html',
         controller: 'settingsCtrl'
       }
     }
