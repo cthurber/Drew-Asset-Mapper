@@ -49,7 +49,7 @@ angular.module('app.routes', [])
       }
     }
   })
-  
+
   .state('menu.usersignup', {
     url: '/signup',
     views: {
@@ -85,6 +85,16 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/provider-views/provider-home.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
+  .state('menu.moderator-home', {
+    url: '/moderator-main-view',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/moderator-views/moderatorHome.html',
         controller: 'settingsCtrl'
       }
     }
