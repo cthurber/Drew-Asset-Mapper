@@ -69,12 +69,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
      //Will become a loop pulling coordinates from the table, markers receive LatLng objects
 
-     var markerIcon = L.icon({iconUrl: 'http://gkv.com/wp-content/uploads/leaflet-maps-marker-icons/map_marker-orange.png', iconSize:[45, 50]}); //Create a custom marker icon
-     var marker = L.marker([40.76, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>I am an orange leaflet</h4><hr/><p>Description: Something about this place! <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
-     var marker2 = L.marker([40.75, -74.235], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leafer"); //Add marker with custom icon to map
-     var marker3 = L.marker([40.74, -74.240], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf for life"); //Add marker with custom icon to map
-     var marker4 = L.marker([40.78, -74.245], {icon: markerIcon}).addTo(mymap).bindPopup("I am an orange leaf forever"); //Add marker with custom icon to map
-
      for (i = 0; i<80; i++) {
        var data = jsonData["data"][i];
 
