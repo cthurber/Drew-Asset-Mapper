@@ -21,5 +21,7 @@ angular.module('MyApp', ['ionic', 'ion-floating-menu'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    Markers.init();
   });
 })

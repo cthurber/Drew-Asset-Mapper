@@ -1,11 +1,27 @@
 angular.module('app.controllers', [])
 
+.controller('DashCtrl', function($scope, $http) {
+  $scope.result = "";
+  $http.get('http://localhost:5000/assetMapper/api/meta')
+    .success(function(data, status, headers,config){
+      console.log('data success');
+      console.log(data); // for browser console
+      $scope.result = data; // for UI
+    })
+    .error(function(data, status, headers,config){
+      console.log('data error');
+    })
+    .then(function(result){
+      things = result.data;
+    });
+})
+
 // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-.controller('homeCtrl', ['$scope', '$stateParams', '$ionicSideMenuDelegate',
-function ($scope, $stateParams, $ionicSideMenuDelegate) {
-
+.controller('homeCtrl', ['$scope', '$state', '$stateParams', '$ionicSideMenuDelegate', 'Markers',
+function ($scope, $state, $stateParams, $ionicSideMenuDelegate, Markers) {
+  // $scope.Markers;
   $scope.$on('$ionicView.enter', function(){
       $ionicSideMenuDelegate.canDragContent(false); //Disable side scrolling opening up side menu (Jon, Ryan)
     });
@@ -71,7 +87,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
      var markerIcon = L.icon({iconUrl: 'http://gkv.com/wp-content/uploads/leaflet-maps-marker-icons/map_marker-orange.png', iconSize:[25, 30]}); //Create a custom marker icon
 
-
+     console.log(Markers.getMarkers().data);
      for (i = 0; i<80; i++) {
        var data = jsonData["data"][i];
 
