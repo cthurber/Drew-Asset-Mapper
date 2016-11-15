@@ -1,5 +1,7 @@
 angular.module('app.services', [])
 
+
+
 .factory('BlankFactory', [function(){
 
 }])
@@ -11,8 +13,9 @@ angular.module('app.services', [])
   return {
     getMarkers: function(){
 
-      return $http.get("http://localhost:5000/assetMapper/api/meta").then(function(response){
+      return $http.get("/api/meta").then(function(response){
           markers = response;
+          console.log(typeof(markers));
           return markers;
       });
 
