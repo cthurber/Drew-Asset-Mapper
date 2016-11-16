@@ -26,9 +26,10 @@ function ($scope, $state, $stateParams, $ionicSideMenuDelegate, Markers) {
       $ionicSideMenuDelegate.canDragContent(false); //Disable side scrolling opening up side menu (Jon, Ryan)
     });
 
-var jsonData = JSON.stringify(Markers.getMarkers());
 
+var jsonData = Markers.getStuff()
 console.log(jsonData);
+// console.log(JSON.parse(jsonData));
 
 var mymap = L.map('mapid').setView([40.76804,-74.235692], 14); //Set map name and default view location/zoom level
     var userMarker;
@@ -79,30 +80,30 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
         })
 
 
-       .on('locationerror', function(e){
-            console.log(e);
-            alert("Could not find your location!"); //Error message if location not found (the borscht has been spilt [Jon,Ryan])
-        });
+      //  .on('locationerror', function(e){
+      //       console.log(e);
+      //       alert("Could not find your location!"); //Error message if location not found (the borscht has been spilt [Jon,Ryan])
+      //   });
 
 
      //Will become a loop pulling coordinates from the table, markers receive LatLng objects
 
      var markerIcon = L.icon({iconUrl: 'http://gkv.com/wp-content/uploads/leaflet-maps-marker-icons/map_marker-orange.png', iconSize:[25, 30]}); //Create a custom marker icon
 
-     console.log(Markers.getMarkers().data);
+    //  console.log(Markers.getMarkers().data);
      // TODO Fix for loop
-    //  for (i = 0; i<80; i++) {
-    //    var data = jsonData["data"][i];
-    //   //  '88', 'YWCA of Essex and West Hudson NJ', '9736729500', '', '', '', '40.773774', '-74.232645', '395 Main St', 'Orange', 'NJ', '07050']
-    //    var lat = parseFloat(data[6]);
-    //    var lon = parseFloat(data[7]);
-    //    var street = data[8];
-    //    var city = data[9]
-    //    var state = data[10]
-    //    var zip = data[11]
-    //
-    //    L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>"+street+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
-    // };
+     for (i = 0; i<80; i++) {
+       var data = jsonData["data"][i];
+      //  '88', 'YWCA of Essex and West Hudson NJ', '9736729500', '', '', '', '40.773774', '-74.232645', '395 Main St', 'Orange', 'NJ', '07050']
+       var lat = data["lat"];
+       var lon = parseFloat(data[7]);
+       var street = data[8];
+       var city = data[9]
+       var state = data[10]
+       var zip = data[11]
+
+       L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>"+street+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
+    };
 
 
 }])
