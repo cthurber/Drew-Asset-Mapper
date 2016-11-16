@@ -26,11 +26,6 @@ function ($scope, $state, $stateParams, $ionicSideMenuDelegate, Markers) {
       $ionicSideMenuDelegate.canDragContent(false); //Disable side scrolling opening up side menu (Jon, Ryan)
     });
 
-
-var jsonData = Markers.getStuff()
-console.log(jsonData);
-// console.log(JSON.parse(jsonData));
-
 var mymap = L.map('mapid').setView([40.76804,-74.235692], 14); //Set map name and default view location/zoom level
     var userMarker;
     var userCircle;
@@ -92,20 +87,36 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
     //  console.log(Markers.getMarkers().data);
      // TODO Fix for loop
-     for (i = 0; i<80; i++) {
-       var data = jsonData["data"][i];
-      //  '88', 'YWCA of Essex and West Hudson NJ', '9736729500', '', '', '', '40.773774', '-74.232645', '395 Main St', 'Orange', 'NJ', '07050']
-       var lat = data["lat"];
-       var lon = parseFloat(data[7]);
-       var street = data[8];
-       var city = data[9]
-       var state = data[10]
-       var zip = data[11]
 
-       L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>"+street+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
-    };
+     $scope.data = 'null';
 
+             Markers.getStuff().then(function(promise){
 
+                 $scope.data = promise;
+                 var jsonData = $scope.data;
+                 var dataArray = JSON.parse(JSON.stringify(jsonData))["data"];
+
+                 console.log(dataArray.length);
+                 for (i = 0; i<dataArray.length; i++) {
+                   var data = dataArray[i];
+
+                   var lat = parseFloat(data["lat"]);
+                   var lon = parseFloat(data["lon"]);
+                   console.log(lat);
+                   console.log(lon)
+                   var street = data["street"];
+                   var city = data["city"]
+                   var state = data["state"]
+                   var name = data["name"]
+                   var telnum = data["telnum"]
+                   var website = data["website"]
+                   var descript = data["descript"]
+                   var contact = data["contact"]
+                   var zip = data["zip"]
+
+                   L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>"+name+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
+                };
+             });
 }])
 
 .controller('settingsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
