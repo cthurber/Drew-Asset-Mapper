@@ -99,11 +99,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                  console.log(dataArray.length);
                  for (i = 0; i<dataArray.length; i++) {
                    var data = dataArray[i];
-
+                   
                    var lat = parseFloat(data["lat"]);
                    var lon = parseFloat(data["lon"]);
-                   console.log(lat);
-                   console.log(lon)
                    var street = data["street"];
                    var city = data["city"]
                    var state = data["state"]
