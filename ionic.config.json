@@ -4,7 +4,7 @@
   "proxies": [
     {
     "path": "/api/meta",
-    "proxyUrl": "http://localhost:5000/assetMapper/api/meta"
+    "proxyUrl": "https://assetmapperapi.herokuapp.com/assetMapper/api/meta/"
     }
   ]
 }

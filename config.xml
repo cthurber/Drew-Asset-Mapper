@@ -10,9 +10,9 @@
   <content src="index.html"/>
   <access origin="*"/>
   <access origin="*"/>
-  <allow-intent href="http://localhost:5000/*"/>
+  <allow-intent href="https://assetmapperapi.herokuapp.com/*"/>
   <allow-navigation href="http://*/*" />
-  <allow-navigation href="http://localhost:5000/*"/>
+  <allow-navigation href="https://assetmapperapi.herokuapp.com/*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
