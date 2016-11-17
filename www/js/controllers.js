@@ -99,7 +99,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                  console.log(dataArray.length);
                  for (i = 0; i<dataArray.length; i++) {
                    var data = dataArray[i];
-                   
+
                    var lat = parseFloat(data["lat"]);
                    var lon = parseFloat(data["lon"]);
                    var street = data["street"];
@@ -112,7 +112,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                    var contact = data["contact"]
                    var zip = data["zip"]
 
-                   L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup("<h4>"+name+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Hours: MWF 9:00 am to 5:00 pm <br/> </p>"); //Add marker with custom icon to map
+                   var contentString = "<h4>"+name+"</h4><hr/><p>Address: "+street+" "+city+", "+state+" "+zip+" <br/> Phone: "+telnum+" <br/> Contact: "+contact+" <br/><a href=\""+website+"\">Website</a> <br/> Description: "+descript+" <br/></p>";
+
+                   L.marker([lat, lon], {icon: markerIcon}).addTo(mymap).bindPopup(contentString); //Add marker with custom icon to map
                 };
              });
 }])
