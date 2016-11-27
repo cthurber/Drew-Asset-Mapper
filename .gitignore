@@ -2,3 +2,4 @@ npm-debug.log
 .idea/workspace.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
+node_modules/node-sass/vendor/win32-x64-48/binding.node
