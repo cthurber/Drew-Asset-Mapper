@@ -44,7 +44,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
-    //mymap.invalidateSize(); //Fixes grey tile rendering issue (Ryan, Nikita)
+    mymap.invalidateSize(); //Fixes grey tile rendering issue (Ryan, Nikita)
 
     //Locate user
     mymap.locate({setView: inBound , watch: true})

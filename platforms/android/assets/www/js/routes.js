@@ -155,6 +155,16 @@ angular.module('app.routes', [])
     templateUrl: 'templates/menu.html',
     controller: 'menuCtrl'
   })
+  
+   .state('menu.help', {
+	   url: '/help',
+	   views: {
+		      'side-menu21': {
+	   templateUrl: 'templates/help.html',
+	   controller: 'menuCtrl'
+	 }
+	}
+   })
 
 $urlRouterProvider.otherwise('/side-menu21/page1')
 
