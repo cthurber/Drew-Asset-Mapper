@@ -2,6 +2,7 @@
 This is the repo for the Asset Mappers application, which places markers representing resources available in the City of Orange, NJ with links to their websites on an interactive map.
 
 ## Required Technology
+* Ionic: http://ionicframework.com/
 
 ## Getting Started  
 1. Install the GitHub client or Git  
@@ -15,6 +16,7 @@ This is the repo for the Asset Mappers application, which places markers represe
 For emulation with Android phones, install Android Studio (which will install the Android SDK) and use it to install a virtual device onto your computer.  This will allow you to emulate an Android phone of your choosing so that you may run the app on it. 
 
 
+## Project Structure
 * `www/` - Most Ionic development happens here
 	* `css/` - App Stylesheet location
 	* `images/` - Place images here
